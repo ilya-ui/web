@@ -2,67 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Retro Mega Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Мой супер сайт</title>
     <style>
-        body { margin: 0; background: #0a0a0a; color: #fff; font-family: sans-serif; display: flex; height: 100vh; overflow: hidden; }
-        #sidebar { width: 280px; background: #151515; border-right: 2px solid #333; padding: 20px; display: flex; flex-direction: column; }
-        h2 { color: #0088ff; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
-        .category { font-size: 10px; color: #555; margin: 15px 0 5px; text-transform: uppercase; }
-        .game-btn { background: #222; border: 1px solid #444; padding: 12px; margin-bottom: 8px; cursor: pointer; border-radius: 5px; color: #fff; text-align: left; transition: 0.2s; }
-        .game-btn:hover { background: #0088ff; border-color: #fff; transform: translateX(5px); }
-        #screen { flex: 1; background: #000; display: flex; align-items: center; justify-content: center; position: relative; }
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
         iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
-
-    <div id="sidebar">
-        <h2>RETRO ROOM</h2>
-        
-        <div class="category">Sega Mega Drive</div>
-        <button class="game-btn" onclick="play('roms/ultimate_mortal_kombat.bin', 'sega')">🐉 Mortal Kombat 3</button>
-        <button class="game-btn" onclick="play('roms/roadrash.gen', 'sega')">🏍️ Road Rash</button>
-
-        <div class="category">Nintendo (Dendy)</div>
-        <button class="game-btn" onclick="play('roms/supermariobros.nes', 'nes')">🍄 Super Mario Bros</button>
-        
-        <div style="margin-top: auto; font-size: 11px; color: #444;">
-            Управление: Стрелки + Z, X, C, Enter
-        </div>
-    </div>
-
-    <div id="screen">
-        <div id="placeholder" style="color:#222; font-size: 24px;">SELECT GAME</div>
-    </div>
-
-    <script>
-        function play(rom, core) {
-            const screen = document.getElementById('screen');
-            screen.innerHTML = ''; 
-            const iframe = document.createElement('iframe');
-            screen.appendChild(iframe);
-
-            // Авто-определение протокола (важно для Cloudflare)
-            const protocol = window.location.protocol;
-            const hostname = window.location.hostname;
-
-            const emuHtml = `
-                <style>body { margin: 0; background: #000; overflow: hidden; }</style>
-                <div id="game"></div>
-                <script>
-                    EJS_player = '#game';
-                    EJS_core = '${core}';
-                    EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-                    EJS_gameUrl = '${protocol}//${hostname}/${rom}';
-                    EJS_startOnLoaded = true;
-                <\/script>
-                <script src="https://cdn.emulatorjs.org/stable/data/loader.js"><\/script>
-            `;
-            
-            iframe.contentWindow.document.open();
-            iframe.contentWindow.document.write(emuHtml);
-            iframe.contentWindow.document.close();
-        }
-    </script>
+    <iframe src="https://ilya.alwaysdata.net"></iframe>
 </body>
 </html>
